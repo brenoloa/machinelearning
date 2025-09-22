@@ -1,0 +1,164 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run FA CLI (python -m fa)",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"5",
+				"--iters",
+				"50",
+				"--n",
+				"20",
+				"--seed",
+				"0"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run FA CLI (python -m fa)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"5",
+				"--iters",
+				"50",
+				"--n",
+				"20",
+				"--seed",
+				"0"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "FA: Run (venv)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"5",
+				"--iters",
+				"20",
+				"--n",
+				"15",
+				"--seed",
+				"0"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "FA: Plot 2D (venv)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"2",
+				"--iters",
+				"20",
+				"--n",
+				"15",
+				"--seed",
+				"1",
+				"--plot",
+				"--save",
+				"fa-sphere-2d.png",
+				"--no-show"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "FA: Plot 2D (venv)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"2",
+				"--iters",
+				"20",
+				"--n",
+				"15",
+				"--seed",
+				"1",
+				"--plot",
+				"--save",
+				"fa-sphere-2d.png",
+				"--no-show"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "FA: Plot 2D (venv)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"2",
+				"--iters",
+				"40",
+				"--n",
+				"20",
+				"--seed",
+				"7",
+				"--plot",
+				"--save",
+				"fa-sphere-2d.png",
+				"--frames",
+				"fa-sphere-2d.gif",
+				"--no-show"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "FA: Plot 2D (venv)",
+			"type": "shell",
+			"command": "C:/Users/breno/machinelearning/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"fa",
+				"sphere",
+				"2",
+				"--iters",
+				"40",
+				"--n",
+				"20",
+				"--seed",
+				"7",
+				"--plot",
+				"--save",
+				"fa-sphere-2d.png",
+				"--frames",
+				"fa-sphere-2d.gif",
+				"--no-show"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

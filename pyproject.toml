@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fa"
+version = "0.1.0"
+description = "Algoritmo dos Vaga-lumes (Firefly Algorithm) em Python"
+requires-python = ">=3.9"
+dependencies = [
+	"numpy>=1.23",
+]
+readme = "README.md"
+
+[project.scripts]
+fa = "fa.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["fa*"]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7", "pillow>=10.0"]

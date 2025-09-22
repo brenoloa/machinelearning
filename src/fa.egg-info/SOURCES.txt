@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/fa/__init__.py
+src/fa/__main__.py
+src/fa/fa.py
+src/fa/objectives.py
+src/fa.egg-info/PKG-INFO
+src/fa.egg-info/SOURCES.txt
+src/fa.egg-info/dependency_links.txt
+src/fa.egg-info/entry_points.txt
+src/fa.egg-info/requires.txt
+src/fa.egg-info/top_level.txt
