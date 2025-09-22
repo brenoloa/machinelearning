@@ -48,18 +48,10 @@ Parâmetros principais:
 - `--save`: caminho para salvar a figura; `--no-show` evita abrir janela.
 - `--frames`: caminho .gif para salvar animação 2D.
 
-## API
-```python
-import numpy as np
-from fa import optimize, sphere
 
-best_x, best_val, info = optimize(
-	func=sphere, d=5, n=30, iters=200, seed=42
-)
-```
+- --iters: número de iterações; critério de parada. Mais iterações tende a melhor solução, porém mais tempo.
 
-`info["history_best"]` contém a evolução do melhor valor (sempre que `d=2` e `track_positions=True`, também há `info["history_positions"]`).
+- --n: tamanho da população (nº de vaga-lumes). Maior melhora a cobertura do espaço, mas custa mais avaliação.
+- --seed: semente aleatória para reprodutibilidade. Mesmo seed → mesmo resultado.
 
-## Notas
-- Código focado em clareza para fins educacionais.
-- Somente NumPy é usado no núcleo; Matplotlib/Pillow são opcionais.
+- --plot/--save/--no-show/--frames: visualização 2D (apenas d=2), salva PNG (--save) e/ou GIF (--frames), e controla abertura de janela.
