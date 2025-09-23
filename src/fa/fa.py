@@ -8,6 +8,7 @@ ObjectiveFn = Callable[[np.ndarray], float]
 
 
 def _as_bounds(lower: float, upper: float, d: int) -> np.ndarray:
+    """Cria um array de limites (d, 2) com [lower, upper] por dimensão."""
     b = np.empty((d, 2), dtype=float)
     b[:, 0] = lower
     b[:, 1] = upper
@@ -35,6 +36,7 @@ class Firefly:
         bounds: np.ndarray | None = None,
         params: FAParams | None = None,
     ) -> None:
+        """Prepara o estado do algoritmo e inicializa a população dentro dos limites."""
         self.func = func
         self.params = params or FAParams()
         self.rng = np.random.default_rng(self.params.seed)
@@ -53,6 +55,7 @@ class Firefly:
         self._init_population()
 
     def _init_population(self) -> None:
+        """Inicializa X ~ Uniform(bounds); avalia f, brilho e o índice do melhor."""
         lo = self.bounds[:, 0]
         hi = self.bounds[:, 1]
         self.X = self.rng.uniform(lo, hi, size=(self.n, self.d))
@@ -61,17 +64,21 @@ class Firefly:
         self.best_idx = int(np.argmax(self.I))
 
     def _brightness(self, fvals: np.ndarray) -> np.ndarray:
+        """Mapeia valores da função para intensidade: -f para minimizar, f para maximizar."""
         return -fvals if self.minimize else fvals
 
     def _move_towards(self, xi: np.ndarray, xj: np.ndarray, beta: float) -> np.ndarray:
+        """Retorna xi movido em direção a xj com atratividade beta e ruído aleatório alpha."""
         step_attract = beta * (xj - xi)
         step_random = self.alpha * (self.rng.random(self.d) - 0.5)
         return xi + step_attract + step_random
 
     def _clip(self, X: np.ndarray) -> np.ndarray:
+        """Recorta as posições para os limites [lower, upper] em cada dimensão."""
         return np.clip(X, self.bounds[:, 0], self.bounds[:, 1])
 
     def step(self) -> None:
+        """Uma iteração do FA: move cada i em direção aos j mais brilhantes e aceita se a intensidade melhora."""
         X_new = self.X.copy()
         for i in range(self.n):
             for j in range(self.n):
@@ -90,6 +97,7 @@ class Firefly:
         self.best_idx = int(np.argmax(self.I))
 
     def run(self, track_positions: bool = False) -> Tuple[np.ndarray, float, Dict[str, Any]]:
+        """Executa por 'iters' passos; opcionalmente coleta posições. Retorna best_x, best_val e info."""
         history_best: List[float] = []
         history_positions: List[np.ndarray] | None = [] if track_positions else None
         if track_positions:
@@ -123,6 +131,7 @@ def optimize(
     seed: int | None = None,
     track_positions: bool = False,
 ) -> Tuple[np.ndarray, float, Dict[str, Any]]:
+    """Atalho conveniente: configura o FA com os parâmetros dados e executa a otimização."""
     params = FAParams(
         n=n,
         d=d,

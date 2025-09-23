@@ -42,6 +42,7 @@ def contour_with_fireflies(
     show: bool = True,
     config: PlotConfig | None = None,
 ) -> None:
+    """desenha a escala do f(x)"""
     _require_matplotlib()
     cfg = config or PlotConfig()
 
@@ -56,7 +57,8 @@ def contour_with_fireflies(
 
     fig, ax = plt.subplots(figsize=cfg.figsize)
     cs = ax.contourf(Xg, Yg, Z, levels=cfg.levels, cmap=cfg.cmap)
-    fig.colorbar(cs, ax=ax)
+    cbar = fig.colorbar(cs, ax=ax)
+    cbar.set_label("valor da função f(x)")
 
     positions_history = np.asarray(positions_history)
     ax.scatter(
@@ -100,7 +102,6 @@ def contour_with_fireflies(
         plt.show()
     plt.close(fig)
 
-
 def animate_fireflies(
     func: Callable[[np.ndarray], float],
     bounds: np.ndarray,
@@ -109,6 +110,7 @@ def animate_fireflies(
     config: PlotConfig | None = None,
     interval_ms: int = 120,
 ) -> None:
+    """gif do brenao."""
     _require_matplotlib()
     if animation is None:
         raise RuntimeError("Matplotlib.animation não está disponível. Atualize o matplotlib.")
